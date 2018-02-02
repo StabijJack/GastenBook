@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\GastenBericht;
 use App\http\Requests\GastenBerichtValidation;
+use App\Mail\GastenBerichtGemaakt;
+use App\Mail\GastenBerichtGewijzigd;
 
 class GastenBerichtController extends Controller
 {
@@ -47,6 +49,8 @@ class GastenBerichtController extends Controller
             $gastenBericht->save();
         }
         flash('Bericht is opgeslagen')->success();
+
+        \Mail::to($gastenBericht)->send(new GastenBerichtGemaakt($gastenBericht));
         return redirect('gastenbericht');
     }
 
@@ -97,6 +101,7 @@ class GastenBerichtController extends Controller
             $gastenBericht->foto = $path . '/' . $gastenBericht->id . $file->getClientOriginalName();
             $gastenBericht->save();
         }
+        \Mail::to($gastenBericht)->send(new GastenBerichtGewijzigd($gastenBericht));
         flash('Bericht is gewijzigd');
         return redirect('gastenbericht');
     }
