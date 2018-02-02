@@ -10,7 +10,7 @@
 <body>
     <div class="container-fluid">
         <h1>GastenBoek</h1>
-        <a href="gastenbericht/create">Maak Bericht</a>
+        <a href="http://gastenbook/gastenbericht/create">Maak Bericht</a>
         <hr> 
         @include('flash::message')
         @yield('content')
