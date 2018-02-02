@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'GastenBerichtController@index');
+Route::resource('gastenbericht', 'GastenBerichtController');
+Route::get('gastenbericht/{gastenbericht}/delete', 'GastenBerichtController@destroy');
