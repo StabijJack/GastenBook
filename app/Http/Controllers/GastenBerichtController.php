@@ -46,7 +46,8 @@ class GastenBerichtController extends Controller
             $gastenBericht->foto = $path . '/' . $gastenBericht->id . $file->getClientOriginalName();
             $gastenBericht->save();
         }
-        return $this->index();
+        flash('Bericht is opgeslagen')->success();
+        return redirect('gastenbericht');
     }
 
     /**
@@ -96,8 +97,8 @@ class GastenBerichtController extends Controller
             $gastenBericht->foto = $path . '/' . $gastenBericht->id . $file->getClientOriginalName();
             $gastenBericht->save();
         }
-
-        return $this->index();
+        flash('Bericht is gewijzigd');
+        return redirect('gastenbericht');
     }
 
     /**
@@ -109,6 +110,7 @@ class GastenBerichtController extends Controller
     public function destroy(GastenBericht $gastenBericht)
     {
         $gastenBericht->delete();
-        return $this->index();
+        flash('Bericht is verwijderd')->overlay();
+        return redirect('gastenbericht');
     }
 }

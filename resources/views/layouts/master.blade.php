@@ -11,9 +11,15 @@
     <div class="container-fluid">
         <h1>GastenBoek</h1>
         <a href="gastenbericht/create">Maak Bericht</a>
-        <hr> @yield('content')
+        <hr> 
+        @include('flash::message')
+        @yield('content')
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+        $('#flash-overlay-modal').modal();
+    </script>
 </body>
 </html>
