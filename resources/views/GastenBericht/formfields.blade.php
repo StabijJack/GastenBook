@@ -8,7 +8,7 @@
 </div>
 <div class="form-group">
     {!! form::label('email','Email:') !!} 
-    {!! form::text('email', null, ['class' => 'form-controle','required'=>true]]) !!}
+    {!! form::text('email', null, ['class' => 'form-controle','required'=>true]) !!}
 </div>
 <div class="form-group">
     {!! form::label('telefoonnummer','Telefoonnummer:') !!} 
